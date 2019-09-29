@@ -49,7 +49,8 @@ class ProfileController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->profileService->create($request);
+        return  redirect()->route('students.index');
     }
 
     /**

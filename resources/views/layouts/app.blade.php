@@ -39,59 +39,39 @@
                     <li class="nav-item dropdown">
                         <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                            {{ 'User' }} <span class="caret"></span>
+                            {{ 'Users' }} <span class="caret"></span>
                         </a>
 
                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                             <a class="dropdown-item" href="{{ route('users.index') }}">
-                                {{ 'List' }}
-                            </a> <a class="dropdown-item" href="{{ route('users.create') }}">
-                                {{ 'Create User' }}
+                                {{ 'Users' }}
+                            </a> <a class="dropdown-item" href="{{ route('students.index') }}">
+                                {{ 'Students' }}
                             </a>
+
                         </div>
                     </li>
-                    <li class="nav-item dropdown">
+                     <li class="nav-item dropdown">
                         <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                            {{ 'Student' }} <span class="caret"></span>
+                            {{ 'Services' }} <span class="caret"></span>
                         </a>
 
                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="{{ route('students.index') }}">
-                                {{ 'List' }}
-                            </a> <a class="dropdown-item" href="{{ route('students.create') }}">
-                                {{ 'Create student  ' }}
+                            <a class="dropdown-item" href="{{ route('electrics.index') }}">
+                                {{ 'Electric' }}
+                            </a> <a class="dropdown-item" href="">
+                                {{ 'Water' }}
                             </a>
-                        </div>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
-                           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                            {{ 'Profile' }} <span class="caret"></span>
-                        </a>
+                            <a class="dropdown-item" href="">
+                                {{ 'Internet' }}
+                            </a>   <a class="dropdown-item" href="{{ route('histories.index') }}">
+                                {{ 'Histories' }}
+                            </a>
 
-                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="{{ route('profiles.index') }}">
-                                {{ 'List' }}
-                            </a> <a class="dropdown-item" href="{{ route('profiles.create') }}">
-                                {{ 'Create profile' }}
-                            </a>
                         </div>
                     </li>
-                    <li class="nav-item dropdown">
-                        <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
-                           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                            {{ 'Vehicle' }} <span class="caret"></span>
-                        </a>
 
-                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="{{ route('vehicles.index') }}">
-                                {{ 'List' }}
-                            </a> <a class="dropdown-item" href="{{ route('vehicles.create') }}">
-                                {{ 'Create vehicle' }}
-                            </a>
-                        </div>
-                    </li>
                     <li class="nav-item dropdown">
                         <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
@@ -109,14 +89,14 @@
                     <li class="nav-item dropdown">
                         <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                            {{ 'Room' }} <span class="caret"></span>
+                            {{ 'Infrastructure' }} <span class="caret"></span>
                         </a>
 
                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                             <a class="dropdown-item" href="{{ route('rooms.index') }}">
-                                {{ 'List' }}
-                            </a> <a class="dropdown-item" href="{{ route('rooms.create') }}">
-                                {{ 'Create Room' }}
+                                {{ 'Rooms' }}
+                            </a> <a class="dropdown-item" href="{{ route('equipments.index') }}">
+                                {{ 'Equipments' }}
                             </a>
                         </div>
                     </li>
@@ -125,6 +105,7 @@
                 <!-- Right Side Of Navbar -->
                 <ul class="navbar-nav ml-auto">
                     <!-- Authentication Links -->
+                    <a href="{{ route('database') }}" class="navbar-brand">Database</a>
                     @guest
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>

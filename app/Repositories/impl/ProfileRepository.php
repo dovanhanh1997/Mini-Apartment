@@ -37,13 +37,10 @@ class ProfileRepository implements ProfileRepositoryInterface
 
     public function create($obj, $request)
     {
-        return $obj->create([
-            'student_id' => $request->student_id,
-            'fullName' => $request->fullName,
-            'fatherName' => $request->fatherName,
-            'motherName' => $request->motherName,
-            'profileAddress' => $request->profileAddress,
-        ]);
+        return [
+            $obj->profileAddress = $request->profileAddress,
+            $obj->student_id = $request->student_id,
+        ];
     }
 
     public function delete($id)
@@ -51,11 +48,31 @@ class ProfileRepository implements ProfileRepositoryInterface
         // TODO: Implement delete() method.
     }
 
-
     public function createIfNotExist($request)
     {
         $newProfile = new Profile();
         return $this->create($newProfile, $request);
     }
 
+    public function findById($id)
+    {
+        return Profile::findOrFail($id);
+    }
+
+    public function updateIfValueNull($profile, $column, $data)
+    {
+        return $profile->$column = $data;
+    }
+
+    public function storeImage($profile)
+    {
+        if (request()->has('profileImage')) {
+            $profile->profileImage = request()->profileImage->store('uploads', 'public');
+        }
+    }
+
+    public function store($profile)
+    {
+        return $profile->save();
+    }
 }

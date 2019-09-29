@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\ProfileUpdateRequestForm;
+use App\Http\Requests\StudentUpdateRequestForm;
 use App\Services\itf\ProfileServiceInterface;
 use App\Services\itf\StudentServiceInterface;
 use Illuminate\Http\Request;
@@ -61,7 +63,6 @@ class StudentController extends Controller
 
     /**
      * Display the specified resource.
-     *
      * @param int $id
      * @return \Illuminate\Http\Response
      */
@@ -69,7 +70,7 @@ class StudentController extends Controller
     {
         $student = $this->studentService->findById($id);
         if ($student->profile == null) {
-            return view('student.update', compact('student'));
+            return view('profile.create', compact('student'));
         }
         return view('student.info', compact('student'));
     }
@@ -89,16 +90,18 @@ class StudentController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param \Illuminate\Http\Request $request
+     * @param StudentUpdateRequestForm $requestStudent
+     * @param ProfileUpdateRequestForm $requestProfile
      * @param int $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(StudentUpdateRequestForm $requestStudent,
+                           ProfileUpdateRequestForm $requestProfile, $id)
     {
-        $this->studentService->update($request, $id);
-        $this->profileService->update($request, $id);
+        $this->studentService->update($requestStudent, $id);
+        $this->profileService->update($requestProfile, $id);
 
-        return redirect()->route('students.index');
+        return redirect()->route('students.show', $id);
     }
 
     /**

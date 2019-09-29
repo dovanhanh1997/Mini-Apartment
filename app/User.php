@@ -46,4 +46,7 @@ class User extends Authenticatable
             'password' => Hash::make($request->password),
         ]);
     }
+
+    public $timestamps = false;
+
 }

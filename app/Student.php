@@ -25,11 +25,6 @@ class Student extends Model
         return $this->hasMany(Vehicle::class);
     }
 
-    public function storeStudent($request)
-    {
-        return User::create($request->all());
-    }
-
     public function room()
     {
         return $this->belongsTo(Room::class);

@@ -46,4 +46,9 @@ class UserService implements UserServiceInterface
     {
         return $this->userRepository->delete($id);
     }
+
+    public function show($id)
+    {
+        // TODO: Implement show() method.
+    }
 }

@@ -11,10 +11,9 @@
                         <th scope="col">Room number</th>
                         <th scope="col">Amount Student</th>
                         <th scope="col">Room Size</th>
+                        <th scope="col">Room Service</th>
+                        <th scope="col">Room Equipment</th>
                         <th scope="col"></th>
-                        <th scope="col">Electric Used</th>
-                        <th scope="col">Water Used</th>
-                        <th scope="col">Internet</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -24,9 +23,19 @@
                             <td>{{ $room->roomNumber }}</td>
                             <td>{{ $room->students->count() }}</td>
                             <td>{{ $room->roomSize }}</td>
-{{--                            <td>{{ $room->gender }}</td>--}}
+                            <td>{{ $room->services()->count() }}</td>
+                            <td>{{ $room->equipments()->count() }}</td>
                             <td>
-                                <a href="{{ route('students.show',$room->id) }}" class="btn btn-info">View</a>
+                                <div class="d-flex">
+                                    <a href="{{ route('rooms.show',$room->id) }}" class="btn btn-info">Detail</a>
+
+                                    {{--                                    <form method="post" action="{{ route('rooms.destroy',$room->id) }}">--}}
+                                    {{--                                        @csrf--}}
+                                    {{--                                        @method('delete')--}}
+                                    {{--                                        <button type="submit" class="btn btn-danger">Delete</button>--}}
+                                    {{--                                    </form>--}}
+                                </div>
+
                             </td>
                         </tr>
                     @endforeach
@@ -41,12 +50,7 @@
                     <tr>
                         <th scope="col">No</th>
                         <th scope="col">Room number</th>
-                        <th scope="col">Amount Student</th>
                         <th scope="col">Room Size</th>
-                        <th scope="col"></th>
-                        <th scope="col">Electric Used</th>
-                        <th scope="col">Water Used</th>
-                        <th scope="col">Internet</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -54,11 +58,19 @@
                         <tr>
                             <td>{{ ++$key }}</td>
                             <td>{{ $room->roomNumber }}</td>
-                            <td>{{ $room->students->count() }}</td>
                             <td>{{ $room->roomSize }}</td>
-{{--                            <td>{{ $room->gender }}</td>--}}
                             <td>
-                                <a href="{{ route('students.show',$room->id) }}" class="btn btn-info">View</a>
+                                <div class="d-flex">
+                                    <a href="{{ route('rooms.show',$room->id) }}"
+                                       class="btn btn-info">Detail</a>
+
+                                    {{--                                    <form method="post" action="{{ route('rooms.destroy',$room->id) }}">--}}
+                                    {{--                                        @csrf--}}
+                                    {{--                                        @method('delete')--}}
+                                    {{--                                        <button type="submit" class="btn btn-danger">Delete</button>--}}
+                                    {{--                                    </form>--}}
+                                </div>
+
                             </td>
                         </tr>
                     @endforeach

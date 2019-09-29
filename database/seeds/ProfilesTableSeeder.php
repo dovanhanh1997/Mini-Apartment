@@ -14,10 +14,8 @@ class ProfilesTableSeeder extends Seeder
     {
         $profile = new Profile();
         $profile->student_id = 1;
-        $profile->fullName = 'Do Van Hanh';
-        $profile->fatherName = 'Father Name';
-        $profile->motherName = 'Mother Name';
         $profile->profileAddress = 'Address';
+        $profile->profileImage = 'home-bg.jpg';
         $profile->save();
     }
 }

@@ -42,6 +42,19 @@ class ContractService implements ContractServiceInterface
 
     public function delete($id)
     {
-        // TODO: Implement delete() method.
+        return $this->contractRepository->delete($id);
+    }
+
+    public function getActive(){
+        return $this->contractRepository->getActive();
+    }
+
+    public function getInactive(){
+        return $this->contractRepository->getInactive();
+    }
+
+    public function show($id)
+    {
+        // TODO: Implement show() method.
     }
 }

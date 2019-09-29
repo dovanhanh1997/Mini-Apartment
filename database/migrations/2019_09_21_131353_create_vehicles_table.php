@@ -20,10 +20,10 @@ class CreateVehiclesTable extends Migration
             $table->string('vehicleType');
             $table->string('vehicleNumber');
             $table->timestamps();
-
-            $table->index('student_id');
-            $table->foreign('student_id')->references('id')
-                ->on('students')->onDelete('cascade');
+//
+//            $table->index('student_id');
+//            $table->foreign('student_id')->references('id')
+//                ->on('students')->onDelete('cascade');
         });
     }
 

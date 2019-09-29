@@ -4,7 +4,7 @@
 namespace App\Services\itf;
 
 
-interface StudentServiceInterface extends CRUDServiceInterface
+interface StudentServiceInterface extends ServiceInterface
 {
 
 }

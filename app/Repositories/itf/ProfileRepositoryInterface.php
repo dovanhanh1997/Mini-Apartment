@@ -10,6 +10,8 @@ interface ProfileRepositoryInterface
 
     public function findByStudentId($id);
 
+    public function findById($id);
+
     public function update($request, $id);
 
     public function create($obj, $request);
@@ -17,4 +19,10 @@ interface ProfileRepositoryInterface
     public function delete($id);
 
     public function createIfNotExist($request);
+
+    public function updateIfValueNull($profile,$column,$data);
+
+    public function store($profile);
+
+    public function storeImage($profile);
 }

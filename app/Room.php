@@ -15,4 +15,15 @@ class Room extends Model
     {
         return $this->belongsTo('App\Contract');
     }
+
+    public function services()
+    {
+        return $this->belongsToMany('App\Service',
+            'room_service');
+    }
+
+    public function equipments()
+    {
+        return $this->belongsToMany('App\Equipment', 'room_equipment');
+    }
 }

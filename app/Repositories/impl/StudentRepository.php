@@ -20,9 +20,9 @@ class StudentRepository implements StudentRepositoryInterface
         return Student::find($id);
     }
 
-    public function update($request, $id)
+    public function update($student, $column, $data)
     {
-        return $this->findById($id)->update($request->all());
+        return $student->$column = $data;
     }
 
     public function create($obj, $request, $idContract)
@@ -44,5 +44,10 @@ class StudentRepository implements StudentRepositoryInterface
     public function createNewStudent()
     {
         return new Student();
+    }
+
+    public function store($student)
+    {
+        return $student->save();
     }
 }

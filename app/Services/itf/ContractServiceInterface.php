@@ -4,7 +4,9 @@
 namespace App\Services\itf;
 
 
-interface ContractServiceInterface extends CRUDServiceInterface
+interface ContractServiceInterface extends ServiceInterface
 {
+    public function getActive();
 
+    public function getInactive();
 }

@@ -12,9 +12,11 @@ interface StudentRepositoryInterface
 
     public function findById($id);
 
-    public function update($request, $id);
+    public function update($student,$column,$data);
 
     public function create($obj, $request,$idContract);
 
     public function delete($id);
+
+    public function store($student);
 }

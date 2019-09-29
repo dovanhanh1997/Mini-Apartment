@@ -19,7 +19,6 @@ class CreateRoomsTable extends Migration
             $table->integer('roomNumber');
             $table->smallInteger('roomSize')->default(20);
             $table->string('status')->default('Inactive');
-
             $table->timestamps();
         });
     }

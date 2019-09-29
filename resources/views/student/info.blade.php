@@ -1,65 +1,95 @@
 @extends('layouts.app')
 @section('content')
     <div class="container">
-        <h3 style="color: blue">Student: {{ $student->profile->fullName }} Information</h3>
-        <div class="row">
-            <div class="col" style="background-color: #5cd08d">
-                <ul>
-                    <li>Name: {{ Auth::User()->name }}</li>
-                    <li>Full Name: {{ $student->profile->fullName }}</li>
-                    <li>Email: {{ Auth::User()->email }}</li>
-                    <li>Age: {{ $student->studentAge }}</li>
-                    <li>Phone: {{ $student->studentPhone }}</li>
-                    <li>Gender: {{ $student->gender }}</li>
-                </ul>
+        <div class="d-flex">
+            <div class="pr-3">
+                <h3 style="color: blue">Student: {{ $student->studentName }} Information</h3>
             </div>
-            <div class="col" style="background-color: #4c110f">
-                <li style="color: white">Father Name: {{ $student->profile->fatherName }}</li>
-                <li style="color: white">Mother Name: {{ $student->profile->motherName }}</li>
-                <li style="color: white">Address: {{ $student->profile->profileAddress }}</li>
-                <li style="color: white">Image: {{ $student->profile->image }}</li>
-            </div>
-            <div class="col" style="background-color: #cbd3da">
-                <li>Contract Number: C0{{ $student->contract->id }}</li>
-                <li>Contract Period: {{ $student->contract->contractPeriod }} year</li>
-                <li>Out Of Date: {{ $student->contract->outOfDate }}</li>
-                <li>Contract Room: {{ $student->contract->contractRoom }}</li>
-            </div>
-        </div>
-        <br>
-        <div class="row">
-            <div class="col-md-2.5" style="background-color: #fde300">
-                <div class="col">
-                    <li>Vehicle Name: </li>
-                    <li>Vehicle Manufacturer: </li>
-                    <li>Vehicle Number: </li>
-                </div>
-            </div>
-            @foreach($student->vehicles as $vehicle)
-                <div class="col-md-2.8 pr-2" style="background-color: #fde300">
-                    {{ $vehicle->vehicleName }}<br>
-                    {{ $vehicle->vehicleType }}<br>
-                    {{ $vehicle->vehicleNumber }}
-                </div>
-            @endforeach
-        </div>
-        <br>
-        <div class="row">
-            <div class="col">
-                <div class="d-flex">
-                    <div class="pr-2">
-                        <a href="{{ route('students.edit', $student->id) }}" class="btn btn-secondary">Update</a>
-                    </div>
-                    <div class="pr-2">
-                        <form action="{{ route('students.destroy',$student->id) }}" method="post">
-                            @method('delete')
-                            @csrf
-                            <button class="btn btn-danger">Delete</button>
-                        </form>
-                    </div>
-                </div>
 
+            <div class="pr-2">
+                <a href="{{ route('students.edit', $student->id) }}" class="btn btn-secondary">Update</a>
+            </div>
+            <div class="pr-2">
+                <form action="{{ route('students.destroy',$student->id) }}" method="post">
+                    @method('delete')
+                    @csrf
+                    <button class="btn btn-danger">Delete</button>
+                </form>
             </div>
         </div>
+
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="card" style="background-color: #6cb2eb">
+                    <div class="card-header">
+                        Private Information
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col">
+                                <p>Full Name: {{ $student-> studentName }}</p>
+                                <p>Age: {{ $student->studentAge }}</p>
+                                <p>Phone: {{ $student->studentPhone }}</p>
+                                <p>Gender: {{ $student->gender }}</p>
+                                <p>Address: {{$student->profile->profileAddress}}</p>
+                            </div>
+
+                            <div class="col">
+                                <img src="{{ asset('storage/'.$student->profile->profileImage) }}" alt="" width="400px">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <br>
+        <div class="row justify-content-center">
+            <div class="col-md-4">
+                <div class="card" style="background-color: #2d995b">
+                    <div class="card-header">
+                        <div class="d-flex">
+                            <div class="pr-5">
+                                Contract Information <br>
+                            </div>
+                            <div class="pr-5">
+                                <a href="" class="btn btn-info">Detail</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <p>Contract ID: C-{{ $student->room->contract->id }}</p>
+                        <p>Contract Period: {{ $student->room->contract->contractPeriod }} (year)</p>
+                        <p>Out Of Date: {{ $student->room->contract->outOfDate }}</p>
+                        <p>Status: {{ $student->room->contract->contractStatus }}</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card" style="background-color: #9561e2">
+                    <div class="card-header">
+                        <div class="d-flex">
+                            <div class="pr-5">
+                            Room Information <br>
+                            </div>
+                            <div class="pr-5">
+                            <a href="{{ route('rooms.show',$student->room->id) }}" class="btn btn-info">Detail</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col">
+                                <p>Room Number: {{ $student->room->roomNumber }}</p>
+                                <p>Room Size: {{ $student->room->roomSize }}</p>
+                                <p>Room Service: {{ $student->room->services()->count() }}</p>
+                                <p>Room Equipment: {{ $student->room->equipments()->count() }}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br>
     </div>
 @endsection

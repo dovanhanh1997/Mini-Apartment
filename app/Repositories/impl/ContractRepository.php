@@ -18,7 +18,7 @@ class ContractRepository implements ContractRepositoryInterface
 
     public function findById($id)
     {
-        // TODO: Implement findById() method.
+        return Contract::findOrFail($id);
     }
 
     public function update($request, $id)
@@ -33,11 +33,22 @@ class ContractRepository implements ContractRepositoryInterface
 
     public function delete($id)
     {
-        // TODO: Implement delete() method.
+        $contract = $this->findById($id);
+        return $contract->delete();
     }
 
     public function createNewContract()
     {
         return new Contract();
+    }
+
+    public function getActive()
+    {
+        return Contract::where('contractStatus', 'Active')->get();
+    }
+
+    public function getInactive()
+    {
+        return Contract::where('contractStatus', 'Inactive')->get();
     }
 }

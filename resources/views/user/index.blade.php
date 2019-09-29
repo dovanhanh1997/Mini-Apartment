@@ -11,15 +11,18 @@
                         <th scope="col">Id</th>
                         <th scope="col">Name</th>
                         <th scope="col">Email</th>
+                        <th scope="col">Create At</th>
                         <th scope="col">Action</th>
                     </tr>
                     </thead>
                     @foreach($users as $key => $user)
+
                         <tr>
                             <td>{{ ++$key }}</td>
                             <td>{{ $user->id }}</td>
                             <td>{{ $user->name }}</td>
                             <td>{{ $user->email }}</td>
+                            <td>{{ $user->created_at }}</td>
                             <td>
                                 <div class="row">
                                     <div class="col">

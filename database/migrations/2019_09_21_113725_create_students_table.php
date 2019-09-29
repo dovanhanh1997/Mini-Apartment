@@ -21,6 +21,8 @@ class CreateStudentsTable extends Migration
             $table->integer('studentPhone')->nullable();
             $table->string('gender')->nullable();
             $table->timestamps();
+
+
         });
     }
 

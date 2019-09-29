@@ -17,7 +17,7 @@ class CreateContractsTable extends Migration
             $table->bigIncrements('id');
             $table->integer('contractPeriod')->default(1);
             $table->date('outOfDate')->nullable();
-            $table->string('status')->default('Inactive');
+            $table->string('contractStatus')->default('Inactive');
             $table->timestamps();
 
         });

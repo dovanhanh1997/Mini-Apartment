@@ -4,7 +4,7 @@
 namespace App\Services\itf;
 
 
-interface VehicleServiceInterface extends CRUDServiceInterface
+interface VehicleServiceInterface extends ServiceInterface
 {
 
 }

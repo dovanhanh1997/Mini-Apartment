@@ -32,7 +32,22 @@ class StudentService implements StudentServiceInterface
 
     public function update($request, $id)
     {
-        $this->studentRepository->update($request, $id);
+        $student = $this->studentRepository->findById($id);
+        $studentName = 'studentName';
+        $studentAge = 'studentAge';
+        $studentPhone = 'studentPhone';
+        if ($request->studentName != null){
+            $this->studentRepository->update($student,$studentName,$request->studentName);
+        }
+        if ($request->studentAge != null){
+            $this->studentRepository->update($student,$studentAge,$request->studentAge);
+        }
+
+        if ($request->studentPhone != null){
+            $this->studentRepository->update($student,$studentPhone,$request->studentPhone);
+        }
+
+        return $this->studentRepository->store($student);
     }
 
     public function create($request)
@@ -57,5 +72,10 @@ class StudentService implements StudentServiceInterface
             }
         }
         return $idContract;
+    }
+
+    public function show($id)
+    {
+        // TODO: Implement show() method.
     }
 }

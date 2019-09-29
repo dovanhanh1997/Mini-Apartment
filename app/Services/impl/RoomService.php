@@ -50,4 +50,26 @@ class RoomService implements RoomServiceInterface
     {
         return $this->roomRepository->getInactiveRoom();
     }
+
+    public function show($id)
+    {
+        return $this->roomRepository->findById($id);
+    }
+
+    public function addService($id, $serviceId)
+    {
+        $room = $this->roomRepository->findById($id);
+        foreach ($room->services as $service) {
+            if ($service->id == $serviceId) {
+                return null;
+            }
+        }
+        return $this->roomRepository->addService($room, $serviceId);
+    }
+
+    public function detachService($id,$request)
+    {
+        $room = $this->roomRepository->findById($id);
+        return $this->roomRepository->detachService($room,$request);
+    }
 }

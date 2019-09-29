@@ -17,7 +17,7 @@ class RoomRepository implements RoomRepositoryInterface
 
     public function findById($id)
     {
-        return $this->findById($id);
+        return Room::findOrFail($id);
     }
 
     public function update($request, $id)
@@ -45,5 +45,15 @@ class RoomRepository implements RoomRepositoryInterface
     public function getInactiveRoom()
     {
         return Room::where('status','Inactive')->get();
+    }
+
+    public function addService($room,$serviceId)
+    {
+        return $room->services()->attach($serviceId);
+    }
+
+    public function detachService($room, $request)
+    {
+        return $room->services()->detach($request->serviceId);
     }
 }

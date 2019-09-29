@@ -4,7 +4,7 @@
 namespace App\Repositories\itf;
 
 
-interface UserRepositoryInterface extends CRUDRepositoryInterface
+interface UserRepositoryInterface extends RepositoryInterface
 {
 
 }

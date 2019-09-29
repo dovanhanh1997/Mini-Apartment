@@ -26,8 +26,11 @@ class ContractController extends Controller
      */
     public function index()
     {
+        $contractActive = $this->contractService->getActive();
+        $contractInactive = $this->contractService->getInactive();
         $contracts = $this->contractService->all();
-        return view('contract.index',compact('contracts'));
+        return view('contract.index', compact('contracts',
+            'contractActive', 'contractInactive'));
     }
 
     /**
@@ -94,6 +97,7 @@ class ContractController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $this->contractService->delete($id);
+        return redirect()->route('contracts.index');
     }
 }
