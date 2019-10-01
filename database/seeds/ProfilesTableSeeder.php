@@ -15,7 +15,7 @@ class ProfilesTableSeeder extends Seeder
         $profile = new Profile();
         $profile->student_id = 1;
         $profile->profileAddress = 'Address';
-        $profile->profileImage = 'home-bg.jpg';
+        $profile->profileImage = 'uploads/home-bg.jpg';
         $profile->save();
     }
 }

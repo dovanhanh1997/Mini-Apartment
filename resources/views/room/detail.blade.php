@@ -84,16 +84,22 @@
                                     <td>{{ $service->serviceSupplier }}</td>
                                     <td>
                                         <div class="d-flex">
-                                            <div class="pr-3">@if($service->serviceName !== 'Garbage' && $service->serviceName !== 'Internet') <a
-                                                    href="{{ route(strtolower($service->serviceName)."s.show",$room->roomNumber) }}"
-                                                    class="btn btn-dark">Detail</a>
+                                            <div
+                                                class="pr-3">@if($service->serviceName !== 'Garbage' && $service->serviceName !== 'Internet')
+                                                    <a
+                                                        href="{{ route(strtolower($service->serviceName)."s.show",$room->roomNumber) }}"
+                                                        class="btn btn-dark">Detail</a>
                                                 @endif
                                             </div>
                                             <div class="pr-3">
                                                 <form action="{{ route('detachService',$room->id) }}" method="post">
                                                     @csrf @method("delete")
-                                                    <input type="hidden" name="serviceId" value="{{ $service->id }}">
-                                                    <button type="submit" class="btn btn-danger">Cancel</button>
+                                                    <input type="hidden" name="serviceId" value="{{ $service->id }}"
+                                                           onclick=" ">
+                                                    <button type="submit" class="btn btn-danger"
+                                                            onclick="return checkDelete()">
+                                                        Cancel
+                                                    </button>
                                                 </form>
                                             </div>
                                         </div>
@@ -134,3 +140,9 @@
         </div>
     </div>
 @endsection
+
+<script language="JavaScript" type="text/javascript">
+    function checkDelete(){
+        return confirm('Do you really want to cancel this service');
+    }
+</script>

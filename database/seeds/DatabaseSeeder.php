@@ -22,8 +22,8 @@ class DatabaseSeeder extends Seeder
             ElectricsTabelSeeder::class,
             EquipmentsSeeder::class,
             RoomsEquipmentsSeeder::class,
+            HistoriesSeeder::class,
 //            VehiclesTableSeeder::class,
-//            HistoriesSeeder::class,
         ]);
     }
 }

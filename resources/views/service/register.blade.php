@@ -50,7 +50,9 @@
                             </table>
                         </div>
                     </div>
-
+                    <form>
+                        <input class="btn btn-dark" type="button" value="Back" onClick="history.go(-1)"/>
+                    </form>
                 </div>
             </div>
 
