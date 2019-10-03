@@ -11,10 +11,10 @@
   <title>Clean Blog - Start Bootstrap Theme</title>
 
   <!-- Bootstrap core CSS -->
-  <link href="/vendor/bootstrap/bootstrap.min.css" rel="stylesheet">
+  <link href="{{ asset('bootstrap/bootstrap.min.css') }}" rel="stylesheet">
 
   <!-- Custom fonts for this template -->
-  <link href="/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+  <link href="{{ asset('fontawesome-free/css/all.min.css') }}" rel="stylesheet" type="text/css">
   <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
   <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
 
@@ -36,7 +36,7 @@
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item">
-            <a class="nav-link" href="index.html">Home</a>
+            <a class="nav-link" href="{{ route('users.index') }}">Manage</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="about.html">About</a>
@@ -172,8 +172,8 @@
   </footer>
 
   <!-- Bootstrap core JavaScript -->
-  <script src="/vendor/jquery/jquery.min.js"></script>
-  <script src="/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="{{ asset('jquery/jquery.min.js') }}"></script>
+  <script src="{{ asset('bootstrap/js/bootstrap.bundle.min.js') }}"></script>
 
   <!-- Custom scripts for this template -->
   <script src=" {{ asset('js/clean-blog.min.js') }}"></script>
